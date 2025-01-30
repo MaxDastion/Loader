@@ -37,8 +37,8 @@ namespace WinFormsApp4
                 MessageBox.Show("Введите URL и путь для сохранения.");
                 return;
             }
-
-            _downloadFilePath = savePathBox.Text;
+            string fileName = GetFileNameFromUrl(urlBox.Text);
+            _downloadFilePath = $"{savePathBox.Text}//{fileName}";
 
             _webClient = new WebClient();
             _cancellationTokenSource = new CancellationTokenSource();
@@ -49,7 +49,7 @@ namespace WinFormsApp4
             try
             {
                 Uri downloadUri = new Uri(urlBox.Text);
-                _webClient.DownloadFileAsync(downloadUri, _downloadFilePath);
+                _webClient.DownloadFileAsync(downloadUri, _downloadFilePath );
                 downloadsList.Items.Add($"Загрузка начата: {urlBox.Text}");
             }
             catch (Exception ex)
@@ -105,9 +105,17 @@ namespace WinFormsApp4
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private string GetFileNameFromUrl(string url)
         {
-
+            try
+            {
+                Uri uri = new Uri(url);
+                return Path.GetFileName(uri.LocalPath);
+            }
+            catch
+            {
+                return "downloaded_file";
+            }
         }
     }
 }

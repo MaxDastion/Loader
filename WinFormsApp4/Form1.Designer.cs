@@ -185,7 +185,7 @@
             this.tableLayoutPanel1.SetRowSpan(this.pauseButton, 2);
             this.pauseButton.Size = new System.Drawing.Size(259, 54);
             this.pauseButton.TabIndex = 7;
-            this.pauseButton.Text = "Приостановить загрузку";
+            this.pauseButton.Text = "Отменить загрузку";
             this.pauseButton.UseVisualStyleBackColor = true;
             this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
@@ -198,7 +198,7 @@
             this.tableLayoutPanel1.SetRowSpan(this.cancelButton, 2);
             this.cancelButton.Size = new System.Drawing.Size(259, 54);
             this.cancelButton.TabIndex = 8;
-            this.cancelButton.Text = "Отмена загрузки";
+            this.cancelButton.Text = "Удалить загруженный файл";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
